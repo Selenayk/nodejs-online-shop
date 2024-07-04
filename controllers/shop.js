@@ -97,7 +97,11 @@ exports.postOrder = (req, res, next) => {
 
 exports.getOrders = (req, res, next) => {
   req.user
+<<<<<<< HEAD
     .getOrders({ include: ['products'] })
+=======
+    .getOrders()
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
     .then((orders) => {
       res.render('shop/orders', {
         pageTitle: 'Your Orders',

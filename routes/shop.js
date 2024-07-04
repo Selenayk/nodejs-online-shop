@@ -20,6 +20,10 @@ router.post('/cart-delete-item', shopController.postCartDeleteProduct);
 
 router.post('/create-order', shopController.postOrder);
 
+<<<<<<< HEAD
 // router.get('/orders', shopController.getOrders);
+=======
+router.get('/orders', shopController.getOrders);
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
 
 module.exports = router;

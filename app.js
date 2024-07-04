@@ -51,7 +51,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
+<<<<<<< HEAD
   User.findById(1)
+=======
+  User.findById('6686a29df0e9ecf16fbd2f9f')
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
     .then((user) => {
       req.user = new User(user.name, user.email, user.cart, user._id);
       next();

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 const mongodb = require('mongodb');
 const Product = require('../models/product');
 
 const ObjectId = mongodb.ObjectId;
 
+=======
+const Product = require('../models/product');
+
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
     pageTitle: 'Add Product',
@@ -16,7 +21,18 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
+<<<<<<< HEAD
   const product = new Product(title, price, description, imageUrl, null, req.user._id);
+=======
+  const product = new Product(
+    title,
+    price,
+    description,
+    imageUrl,
+    null,
+    req.user._id
+  );
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
   product
     .save()
     .then((result) => {
@@ -65,7 +81,11 @@ exports.postEditProduct = (req, res, next) => {
     new ObjectId(prodId)
   );
   product
+<<<<<<< HEAD
     .save()      
+=======
+    .save()
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
     .then((result) => {
       console.log('UPDATED PRODUCT!');
       res.redirect('/admin/products');

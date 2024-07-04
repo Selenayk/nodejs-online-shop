@@ -1,5 +1,8 @@
 const mongodb = require('mongodb');
+<<<<<<< HEAD
 const { get } = require('../routes/admin');
+=======
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
 const getDb = require('../util/database').getDb;
 
 const ObjectId = mongodb.ObjectId;
@@ -18,13 +21,21 @@ class User {
   }
 
   addToCart(product) {
+<<<<<<< HEAD
     const cartProduct = this.cart.items.findIndex((cp) => {
+=======
+    const cartProductIndex = this.cart.items.findIndex((cp) => {
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
       return cp.productId.toString() === product._id.toString();
     });
     let newQuantity = 1;
     const updatedCartItems = [...this.cart.items];
 
+<<<<<<< HEAD
     if (cartProduct >= 0) {
+=======
+    if (cartProductIndex >= 0) {
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
       newQuantity = this.cart.items[cartProductIndex].quantity + 1;
       updatedCartItems[cartProductIndex].quantity = newQuantity;
     } else {
@@ -82,7 +93,11 @@ class User {
 
   addOrder() {
     const db = getDb();
+<<<<<<< HEAD
     this.getCart()
+=======
+    return this.getCart()
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
       .then((products) => {
         const order = {
           items: products,
@@ -91,7 +106,11 @@ class User {
             name: this.name,
           },
         };
+<<<<<<< HEAD
         return db.collection('orders').insertOne(this.cart);
+=======
+        return db.collection('orders').insertOne(order);
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
       })
       .then((result) => {
         this.cart = { items: [] };
@@ -106,6 +125,13 @@ class User {
 
   getOrders() {
     const db = getDb();
+<<<<<<< HEAD
+=======
+    return db
+      .collection('orders')
+      .find({ 'user._id': new ObjectId(this._id) })
+      .toArray();
+>>>>>>> 8b3a911 (Fixed some problems. Added 'Order Now!' button functionality.)
   }
 
   static findById(userId) {
